@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تحليل العروض المالية | شركة حلول تلاد المتكاملة</title>
 
-  <!-- مكتبة قراءة ملفات Word (DOCX فقط) -->
-  <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
-
   <style>
     :root {
       --bg: #020617;
@@ -22,14 +19,11 @@
       --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.45);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #020617 0, #020617 45%, #020617 100%);
       color: var(--text);
       min-height: 100vh;
@@ -139,8 +133,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: transform 0.1s ease, box-shadow 0.1s ease,
-        background 0.1s ease;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
       white-space: nowrap;
     }
 
@@ -197,13 +190,8 @@
       font-weight: 600;
     }
 
-    .summary-value.danger {
-      color: var(--danger);
-    }
-
-    .summary-value.success {
-      color: var(--accent);
-    }
+    .summary-value.danger { color: var(--danger); }
+    .summary-value.success { color: var(--accent); }
 
     table {
       width: 100%;
@@ -212,12 +200,9 @@
       font-size: 0.8rem;
     }
 
-    thead {
-      background: rgba(15, 23, 42, 0.95);
-    }
+    thead { background: rgba(15, 23, 42, 0.95); }
 
-    th,
-    td {
+    th, td {
       border: 1px solid #111827;
       padding: 6px 8px;
       text-align: center;
@@ -228,17 +213,10 @@
       color: var(--muted);
     }
 
-    tbody tr:nth-child(even) {
-      background: rgba(15, 23, 42, 0.9);
-    }
+    tbody tr:nth-child(even) { background: rgba(15, 23, 42, 0.9); }
+    tbody tr:nth-child(odd)  { background: rgba(15, 23, 42, 0.75); }
 
-    tbody tr:nth-child(odd) {
-      background: rgba(15, 23, 42, 0.75);
-    }
-
-    .text-start {
-      text-align: right;
-    }
+    .text-start { text-align: right; }
 
     .badge-tilad {
       display: inline-flex;
@@ -288,16 +266,10 @@
     }
 
     @media (max-width: 700px) {
-      .card {
-        padding: 12px 10px;
-      }
-
-      .header-title {
-        font-size: 1.2rem;
-      }
+      .card { padding: 12px 10px; }
+      .header-title { font-size: 1.2rem; }
     }
 
-    /* نمط الطباعة لتصدير PDF من المتصفح */
     @media print {
       body {
         background: #ffffff;
@@ -323,23 +295,16 @@
         display: none !important;
       }
 
-      .header-sub {
-        color: #222;
-      }
+      .header-sub { color: #222; }
 
-      th,
-      td {
-        border-color: #888;
-      }
+      th, td { border-color: #888; }
 
       .summary-card {
         background: #f9fafb;
         border-color: #ddd;
       }
 
-      .signature {
-        color: #222;
-      }
+      .signature { color: #222; }
     }
   </style>
 </head>
@@ -349,30 +314,30 @@
     <header class="header">
       <div class="header-title">تحليل العروض المالية | شركة حلول تلاد المتكاملة</div>
       <div class="header-sub">
-        أداة داخلية تقوم بتحليل تقرير فتح العروض (Word DOCX من منصة اعتماد) تلقائيًا بدون أي مدخلات يدوية.
+        أداة داخلية تقوم بتحليل تقرير فتح العروض من منصة اعتماد (ملف DOC) تلقائيًا بدون أي مدخلات يدوية.
       </div>
     </header>
 
     <!-- ١) رفع التقرير -->
     <section class="card">
       <div class="card-header">
-        <div class="card-title">١) رفع تقرير فتح العروض (Word)</div>
+        <div class="card-title">١) رفع تقرير فتح العروض (ملف DOC من اعتماد)</div>
         <span class="badge">وحدة: تطوير الأعمال / شركة حلول تلاد المتكاملة</span>
       </div>
 
       <div class="input-row">
         <div class="field">
-          <label>ملف تقرير فتح العروض (صيغة DOCX من منصة اعتماد)</label>
-          <input id="fileInput" type="file" accept=".docx,.doc" />
+          <label>ملف تقرير فتح العروض (كما هو من منصة اعتماد)</label>
+          <input id="fileInput" type="file" accept=".doc,.html,.htm" />
           <div class="note">
-            يُفضّل حفظ التقرير من منصة اعتماد بصيغة <strong>DOCX</strong> ثم رفعه هنا.
-            إذا كان الملف قديم بصيغة <strong>.doc</strong> الرجاء حفظه من Word كـ DOCX.
+            التقارير من اعتماد تكون في الحقيقة <strong>HTML</strong> لكنها محفوظة بامتداد <strong>.DOC</strong> –  
+            هذه الأداة تقرأها مباشرة وتستخرج الجدول تلقائيًا.
           </div>
         </div>
       </div>
 
       <div class="btn-row">
-        <button class="btn-primary" onclick="processDocx()">
+        <button class="btn-primary" onclick="processDoc()">
           🔍 تحليل التقرير الآن
         </button>
         <button class="btn-secondary" onclick="window.print()">
@@ -381,15 +346,12 @@
       </div>
 
       <div class="pill">
-        ℹ️ الخطوات:  
-        1) تحميل تقرير فتح العروض من اعتماد كـ Word (DOCX)  
-        2) رفعه هنا  
-        3) يتم استخراج العروض وترتيب تلاد تلقائيًا
+        ℹ️ الخطوات: 1) حمّل تقرير فتح العروض من اعتماد بصيغة DOC 2) ارفعه هنا 3) يظهر التحليل والجدول تلقائيًا.
       </div>
     </section>
 
     <!-- ٢) ملخص البيانات -->
-    <section class="card" id="summaryCard" style="display: none">
+    <section class="card" id="summaryCard" style="display:none;">
       <div class="card-header">
         <div class="card-title">٢) بيانات المنافسة والنتائج الرئيسية</div>
       </div>
@@ -411,7 +373,7 @@
         </div>
 
         <div class="summary-card">
-          <div class="summary-label">عدد العروض المقبولة ماليًا (تقديري)</div>
+          <div class="summary-label">عدد العروض في الجدول</div>
           <div class="summary-value" id="sOffersCount">—</div>
         </div>
 
@@ -421,7 +383,7 @@
         </div>
 
         <div class="summary-card">
-          <div class="summary-label">عرض شركة تلاد (ريال)</div>
+          <div class="summary-label">عرض تلاد (ريال)</div>
           <div class="summary-value" id="sTiladBid">—</div>
         </div>
 
@@ -438,12 +400,12 @@
     </section>
 
     <!-- ٣) جدول التحليل -->
-    <section class="card" id="tableCard" style="display: none">
+    <section class="card" id="tableCard" style="display:none;">
       <div class="card-header">
         <div class="card-title">٣) جدول التحليل المالي للعروض</div>
       </div>
 
-      <div class="section-title">الجدول المالي المقارن (تلقائي):</div>
+      <div class="section-title">الجدول المالي المقارن:</div>
       <table>
         <thead>
           <tr>
@@ -457,15 +419,15 @@
         <tbody id="offersTableBody"></tbody>
       </table>
 
-      <div class="note">
-        * يتم ترتيب العروض تصاعديًا حسب قيمة العرض، مع استبعاد الأسطر التي تتضمن "غير مطابق فنياً" قدر الإمكان.
+      <div class="note" id="tableNote">
+        * يتم ترتيب العروض تصاعديًا حسب قيمة العرض، مع استبعاد الأسطر التي تحتوي "غير مطابق فنياً".
       </div>
     </section>
 
     <!-- ٤) الملاحظات العامة والتوصية -->
-    <section class="card" id="notesCard" style="display: none">
+    <section class="card" id="notesCard" style="display:none;">
       <div class="card-header">
-        <div class="card-title">٤) الملاحظات العامة والتوصية (توليد تلقائي)</div>
+        <div class="card-title">٤) الملاحظات العامة والتوصية (مسودة تلقائية)</div>
       </div>
 
       <div class="section-title">الملاحظات العامة:</div>
@@ -475,7 +437,7 @@
       <div id="recommendation" class="textarea-like"></div>
 
       <div class="note">
-        يمكن تعديل النصوص بعد التصدير إلى Word أو PDF وفقًا للحالة الفعلية لكل منافسة.
+        يمكن تعديل النصوص بعد التصدير إلى Word أو PDF حسب كل منافسة.
       </div>
     </section>
 
@@ -487,288 +449,341 @@
 
   <script>
     let parsedOffers = [];
-    let rawText = "";
+    let onlySuppliers = [];
+    let meta = { tenderNumber: "—", tenderName: "—", openDate: "—" };
 
     function formatNumber(num) {
       if (num === null || num === undefined || isNaN(num)) return "—";
-      return num.toLocaleString("ar-SA", {
-        maximumFractionDigits: 2,
-      });
+      return num.toLocaleString("ar-SA", { maximumFractionDigits: 2 });
     }
 
     function formatPercent(num) {
       if (num === null || num === undefined || isNaN(num)) return "—";
-      return (
-        num.toLocaleString("ar-SA", {
-          maximumFractionDigits: 2,
-        }) + " %"
-      );
+      return num.toLocaleString("ar-SA", { maximumFractionDigits: 2 }) + " %";
     }
 
-    function processDocx() {
+    function processDoc() {
       const input = document.getElementById("fileInput");
       const file = input.files[0];
 
       if (!file) {
-        alert("الرجاء اختيار ملف تقرير فتح العروض (DOCX) أولاً.");
-        return;
-      }
-
-      const ext = file.name.toLowerCase();
-      if (!ext.endsWith(".docx")) {
-        alert("يفضل استخدام ملفات DOCX. الرجاء حفظ التقرير من Word بصيغة DOCX ثم رفعه.");
+        alert("الرجاء اختيار ملف تقرير فتح العروض (DOC) أولاً.");
         return;
       }
 
       const reader = new FileReader();
       reader.onload = function (e) {
-        const arrayBuffer = e.target.result;
-        mammoth.extractRawText({ arrayBuffer: arrayBuffer }).then(function (result) {
-          rawText = result.value || "";
-          analyzeText(rawText);
-        }).catch(function (err) {
-          console.error(err);
-          alert("حدث خطأ أثناء قراءة ملف الـ DOCX. تأكد من أن الملف هو تقرير من منصة اعتماد.");
-        });
+        const text = e.target.result;
+        analyzeHtml(text);
       };
-      reader.readAsArrayBuffer(file);
+      reader.readAsText(file, "utf-8");
     }
 
-    function analyzeText(text) {
-      parsedOffers = parseOffersFromText(text);
-      const meta = parseMetaFromText(text);
+    function analyzeHtml(html) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
 
-      if (!parsedOffers || parsedOffers.length === 0) {
-        alert("لم يتم التعرف على أي عروض مالية داخل التقرير. قد يحتاج النمط لبعض التعديل وفقًا لتنسيق تقاريركم.");
+      parsedOffers = [];
+      onlySuppliers = [];
+      meta = parseMetaFromDoc(doc);
+
+      const table = doc.querySelector('table[aria-label="offer details"]');
+      if (!table) {
+        alert("لم يتم العثور على جدول العروض داخل التقرير.");
         return;
       }
 
-      runAnalysis(parsedOffers, meta);
-    }
-
-    function parseMetaFromText(text) {
-      const meta = {
-        tenderNumber: "—",
-        tenderName: "—",
-        openDate: "—",
-      };
-
-      const lines = text.split(/\r?\n/).map((l) => l.trim()).filter((l) => l);
-
-      for (const line of lines) {
-        if (line.includes("رقم المنافسة")) {
-          const m = line.match(/\d+/);
-          if (m) meta.tenderNumber = m[0];
-        }
-
-        if (line.includes("اسم المشروع") || line.includes("اسم المنافسة")) {
-          const parts = line.split(":", 2);
-          if (parts.length === 2 && parts[1].trim()) {
-            meta.tenderName = parts[1].trim();
-          }
-        }
-
-        if (line.includes("تاريخ فتح العروض") || line.includes("تاريخ فتح المظاريف")) {
-          const parts = line.split(":", 2);
-          if (parts.length === 2 && parts[1].trim()) {
-            meta.openDate = parts[1].trim();
-          }
-        }
+      const rows = Array.from(table.querySelectorAll("tr"));
+      if (rows.length <= 1) {
+        alert("جدول العروض لا يحتوي على بيانات.");
+        return;
       }
 
-      return meta;
-    }
-
-    // محاولة عامة لاستخراج (اسم المورد + رقم العرض + القيمة)
-    function parseOffersFromText(text) {
-      const offers = [];
-
-      // نزيل الأسطر الطويلة جدًا الغير مفيدة
-      const clean = text.replace(/\s+/g, " ").trim();
-
-      // نمط تقريبي: [اسم عربي] + [رقم عرض] + [قيمة] + (ربما ملاحظة)
-      const regex = /([\u0600-\u06FF0-9\s]+?)\s+(\d{6,})\s+([\d,]+\.\d{2}|\d[\d,]{5,})/g;
-      let match;
-
-      while ((match = regex.exec(clean)) !== null) {
-        let full = match[0] || "";
-        let name = match[1] || "";
-        let amountStr = match[3] || "";
-
-        if (full.includes("غير مطابق")) continue;
-
-        name = name.replace(/\s+/g, " ").trim();
-        amountStr = amountStr.replace(/,/g, "").trim();
-
-        const amount = Number(amountStr);
-        if (!name || isNaN(amount)) continue;
-        if (amount < 1000) continue;
-
-        offers.push({ name, value: amount });
-      }
-
-      // إزالة التكرار
-      const unique = [];
-      const seen = new Set();
-      for (const o of offers) {
-        const key = o.name + "|" + o.value;
-        if (!seen.has(key)) {
-          seen.add(key);
-          unique.push(o);
-        }
-      }
-
-      return unique;
-    }
-
-    function runAnalysis(offers, meta) {
-      const offersSorted = [...offers].sort((a, b) => a.value - b.value);
-      const lowest = offersSorted[0];
-
-      // البحث عن تلاد في الأسماء
-      const tiladOffer =
-        offersSorted.find((o) => o.name.includes("تلاد")) || null;
-
-      document.getElementById("sTenderNumber").textContent =
-        meta.tenderNumber || "—";
-      document.getElementById("sTenderName").textContent =
-        meta.tenderName || "—";
-      document.getElementById("sOpenDate").textContent =
-        meta.openDate || "—";
-      document.getElementById("sOffersCount").textContent =
-        offersSorted.length || "—";
-
-      let tiladBidValue = null;
-      let tiladRank = "—";
-      let tiladVsLowest = "—";
-
-      if (tiladOffer) {
-        tiladBidValue = tiladOffer.value;
-        const rankIndex = offersSorted.findIndex((o) => o === tiladOffer) + 1;
-        tiladRank = rankIndex + " من " + offersSorted.length;
-
-        const diff = tiladOffer.value - lowest.value;
-        const pct = (diff / lowest.value) * 100;
-        tiladVsLowest =
-          (pct >= 0 ? "+" : "") +
-          pct.toLocaleString("ar-SA", { maximumFractionDigits: 2 }) +
-          " %";
-      } else {
-        tiladVsLowest =
-          "لم يتم العثور على اسم يحتوي (تلاد) ضمن العروض.";
-      }
-
-      document.getElementById("sTiladBid").textContent = tiladBidValue
-        ? formatNumber(tiladBidValue)
-        : "—";
-      document.getElementById("sTiladRank").textContent = tiladRank;
-      document.getElementById("sTiladVsLowest").textContent = tiladVsLowest;
-      document.getElementById("sLowestBid").textContent = formatNumber(
-        lowest.value
+      const headerCells = Array.from(rows[0].querySelectorAll("th,td"));
+      const hasValueCol = headerCells.some((th) =>
+        th.textContent.includes("قيمة العرض")
       );
 
-      // تعبئة الجدول
-      const tbody = document.getElementById("offersTableBody");
-      tbody.innerHTML = "";
+      if (hasValueCol) {
+        // تقرير فتح عروض مالية
+        for (let i = 1; i < rows.length; i++) {
+          const cells = rows[i].querySelectorAll("td");
+          if (cells.length < 4) continue;
 
-      offersSorted.forEach((offer, idx) => {
-        const tr = document.createElement("tr");
-        const isTilad = tiladOffer && offer === tiladOffer;
+          const name = cells[0].textContent.trim();
+          const offerNo = cells[1].textContent.trim();
+          const valueText = cells[2].textContent.trim();
+          const noteText = cells[3].textContent.trim();
 
-        const tdIndex = document.createElement("td");
-        tdIndex.textContent = idx + 1;
+          if (!name) continue;
+          if (valueText.includes("غير مطابق") || noteText.includes("غير مطابق")) continue;
 
-        const tdName = document.createElement("td");
-        tdName.className = "text-start";
-        tdName.textContent = offer.name;
-        if (isTilad) {
-          const badge = document.createElement("span");
-          badge.className = "badge-tilad";
-          badge.textContent = "تلاد";
-          tdName.appendChild(document.createTextNode(" "));
-          tdName.appendChild(badge);
+          const numericStr = valueText.replace(/,/g, "").trim();
+          const value = Number(numericStr);
+          if (isNaN(value) || value < 1000) continue;
+
+          parsedOffers.push({ name, offerNo, value, note: noteText });
         }
-
-        const tdValue = document.createElement("td");
-        tdValue.textContent = formatNumber(offer.value);
-
-        const tdVsLowest = document.createElement("td");
-        const pctLowest = (offer.value / lowest.value) * 100;
-        tdVsLowest.textContent = formatPercent(pctLowest);
-
-        const tdVsTilad = document.createElement("td");
-        if (tiladOffer && tiladOffer.value > 0) {
-          const pctTilad = (offer.value / tiladOffer.value) * 100;
-          tdVsTilad.textContent = formatPercent(pctTilad);
-        } else {
-          tdVsTilad.textContent = "—";
+      } else {
+        // تقرير بدون قيم مالية (فقط أسماء + أرقام عروض)
+        for (let i = 1; i < rows.length; i++) {
+          const cells = rows[i].querySelectorAll("td");
+          if (cells.length === 0) continue;
+          const name = cells[0].textContent.trim();
+          const offerNo = cells[1] ? cells[1].textContent.trim() : "";
+          const noteText = cells[2] ? cells[2].textContent.trim() : "";
+          if (!name) continue;
+          onlySuppliers.push({ name, offerNo, note: noteText });
         }
+      }
 
-        tr.appendChild(tdIndex);
-        tr.appendChild(tdName);
-        tr.appendChild(tdValue);
-        tr.appendChild(tdVsLowest);
-        tr.appendChild(tdVsTilad);
-        tbody.appendChild(tr);
+      if (parsedOffers.length === 0 && onlySuppliers.length === 0) {
+        alert("لم يتم التعرف على بيانات منافسين داخل التقرير.");
+        return;
+      }
+
+      runAnalysis();
+    }
+
+    function parseMetaFromDoc(doc) {
+      const out = { tenderNumber: "—", tenderName: "—", openDate: "—" };
+      const h6s = Array.from(doc.querySelectorAll("h6"));
+
+      h6s.forEach((h) => {
+        const t = h.textContent.trim();
+        if (t.includes("رقم المنافسة") && out.tenderNumber === "—") {
+          const m = t.match(/\d+/);
+          if (m) out.tenderNumber = m[0];
+        } else if (
+          (t.includes("تاريخ فتح العروض") || t.includes("تاريخ فتح")) &&
+          out.openDate === "—"
+        ) {
+          const parts = t.split(":", 2);
+          if (parts.length === 2 && parts[1].trim()) {
+            out.openDate = parts[1].trim();
+          }
+        } else if (
+          out.tenderName === "—" &&
+          !t.includes("رقم المنافسة") &&
+          !t.includes("تاريخ") &&
+          !t.includes("تقرير فتح العروض")
+        ) {
+          out.tenderName = t;
+        }
       });
 
-      // ملاحظات وتوصية
-      const notes = [];
-      notes.push(
-        `• بلغ أقل عرض مقدّم من قبل: "${lowest.name}" بقيمة تقريبية مقدارها ${formatNumber(
-          lowest.value
-        )} ريال.`
-      );
+      return out;
+    }
 
-      if (tiladOffer) {
-        const diffAbs = tiladOffer.value - lowest.value;
-        const diffPct = (diffAbs / lowest.value) * 100;
-        notes.push(
-          `• عرض شركة تلاد بلغ حوالي ${formatNumber(
-            tiladOffer.value
-          )} ريال، أي بزيادة تقارب ${formatPercent(
-            diffPct
-          )} عن أقل عرض مالي، مع ترتيب مالي تقديري: ${document.getElementById(
-            "sTiladRank"
-          ).textContent}.`
+    function runAnalysis() {
+      const summaryCard = document.getElementById("summaryCard");
+      const tableCard = document.getElementById("tableCard");
+      const notesCard = document.getElementById("notesCard");
+      const tableBody = document.getElementById("offersTableBody");
+      const tableNote = document.getElementById("tableNote");
+
+      document.getElementById("sTenderNumber").textContent = meta.tenderNumber;
+      document.getElementById("sTenderName").textContent = meta.tenderName;
+      document.getElementById("sOpenDate").textContent = meta.openDate;
+
+      tableBody.innerHTML = "";
+
+      if (parsedOffers.length > 0) {
+        // لدينا قيم عروض مالية
+        const offersSorted = [...parsedOffers].sort((a, b) => a.value - b.value);
+        const lowest = offersSorted[0];
+        const tiladOffer =
+          offersSorted.find((o) => o.name.includes("تلاد")) || null;
+
+        document.getElementById("sOffersCount").textContent =
+          offersSorted.length.toString();
+        document.getElementById("sLowestBid").textContent = formatNumber(
+          lowest.value
         );
 
-        if (diffPct > 100) {
+        let tiladBidValue = null;
+        let tiladRankText = "—";
+        let tiladVsLowestText = "—";
+
+        if (tiladOffer) {
+          tiladBidValue = tiladOffer.value;
+          const rankIndex = offersSorted.indexOf(tiladOffer) + 1;
+          tiladRankText = rankIndex + " من " + offersSorted.length;
+
+          const diff = tiladOffer.value - lowest.value;
+          const pct = (diff / lowest.value) * 100;
+          tiladVsLowestText =
+            (pct >= 0 ? "+" : "") + pct.toLocaleString("ar-SA", { maximumFractionDigits: 2 }) + " %";
+        } else {
+          tiladVsLowestText = "لم يتم العثور على عرض يحمل اسم (تلاد) في الجدول.";
+        }
+
+        document.getElementById("sTiladBid").textContent = tiladBidValue
+          ? formatNumber(tiladBidValue)
+          : "—";
+        document.getElementById("sTiladRank").textContent = tiladRankText;
+        document.getElementById("sTiladVsLowest").textContent = tiladVsLowestText;
+
+        offersSorted.forEach((offer, idx) => {
+          const tr = document.createElement("tr");
+          const isTilad = tiladOffer && offer === tiladOffer;
+
+          const tdIndex = document.createElement("td");
+          tdIndex.textContent = idx + 1;
+
+          const tdName = document.createElement("td");
+          tdName.className = "text-start";
+          tdName.textContent = offer.name;
+          if (isTilad) {
+            const badge = document.createElement("span");
+            badge.className = "badge-tilad";
+            badge.textContent = "تلاد";
+            tdName.appendChild(document.createTextNode(" "));
+            tdName.appendChild(badge);
+          }
+
+          const tdValue = document.createElement("td");
+          tdValue.textContent = formatNumber(offer.value);
+
+          const tdVsLowest = document.createElement("td");
+          const pctLowest = (offer.value / lowest.value) * 100;
+          tdVsLowest.textContent = formatPercent(pctLowest);
+
+          const tdVsTilad = document.createElement("td");
+          if (tiladOffer && tiladOffer.value > 0) {
+            const pctTilad = (offer.value / tiladOffer.value) * 100;
+            tdVsTilad.textContent = formatPercent(pctTilad);
+          } else {
+            tdVsTilad.textContent = "—";
+          }
+
+          tr.appendChild(tdIndex);
+          tr.appendChild(tdName);
+          tr.appendChild(tdValue);
+          tr.appendChild(tdVsLowest);
+          tr.appendChild(tdVsTilad);
+          tableBody.appendChild(tr);
+        });
+
+        tableNote.textContent =
+          "* تم استبعاد العروض التي تحتوي على (غير مطابق فنياً) من التحليل المالي، وتم ترتيب العروض تصاعديًا حسب قيمة العرض.";
+
+        // ملاحظات وتوصية
+        const notes = [];
+        notes.push(
+          `• بلغ أقل عرض مقدّم من قبل: "${lowest.name}" بقيمة تقريبية مقدارها ${formatNumber(
+            lowest.value
+          )} ريال.`
+        );
+
+        if (tiladOffer) {
+          const diffAbs = tiladOffer.value - lowest.value;
+          const diffPct = (diffAbs / lowest.value) * 100;
           notes.push(
-            "• زيادة عرض تلاد عن أقل عرض تتجاوز 100%، ما قد يؤثر على التنافسية المالية ويتطلّب مراجعة تفصيلية لتكاليف الأعمال والعناصر التسعيرية."
+            `• عرض شركة تلاد بلغ حوالي ${formatNumber(
+              tiladOffer.value
+            )} ريال، أي بزيادة تقارب ${formatPercent(
+              diffPct
+            )} عن أقل عرض مالي، مع ترتيب مالي تقديري: ${tiladRankText}.`
           );
-        } else if (diffPct > 40) {
-          notes.push(
-            "• نسبة زيادة عرض تلاد عن أقل عرض تقع في نطاق متوسط/مرتفع، ويستحسن مراجعة بنود التسعير ذات الأثر الأكبر على التكلفة."
-          );
+
+          if (diffPct > 100) {
+            notes.push(
+              "• زيادة عرض تلاد عن أقل عرض تتجاوز 100%، ما قد يؤثر على التنافسية المالية ويتطلّب مراجعة تفصيلية لتكاليف الأعمال والعناصر التسعيرية."
+            );
+          } else if (diffPct > 40) {
+            notes.push(
+              "• نسبة زيادة عرض تلاد عن أقل عرض تقع في نطاق متوسط/مرتفع، ويستحسن مراجعة بنود التسعير ذات الأثر الأكبر على التكلفة."
+            );
+          } else {
+            notes.push(
+              "• نسبة زيادة عرض تلاد عن أقل عرض تقع ضمن نطاق مقبول نسبيًا، مع إمكانية تحسين بعض البنود للحصول على سعر أكثر تنافسية."
+            );
+          }
         } else {
           notes.push(
-            "• نسبة زيادة عرض تلاد عن أقل عرض تقع ضمن نطاق مقبول نسبيًا، مع إمكانية تحسين بعض البنود للحصول على سعر أكثر تنافسية."
+            "• لم يتم التعرّف تلقائيًا على عرض مرتبط باسم (تلاد)، يُرجى التأكد من أن التقرير يحتوي على اسم الشركة بالشكل المتعارف عليه."
           );
         }
+
+        document.getElementById("generalNotes").textContent = notes.join("\n");
+
+        let rec =
+          "استنادًا إلى مقارنة العروض المالية فقط، يُوصى بما يلي:\n\n";
+        rec +=
+          "1) مراجعة بنود التسعير التفصيلية لعرض شركة تلاد والتحقق من فرص إعادة ضبط الأسعار دون التأثير على جودة التنفيذ.\n";
+        rec +=
+          "2) في حال ثبوت فجوة مالية كبيرة وغير مبررة مع أقل عرض، يُقترح إعداد سيناريوهات بديلة لخفض التكاليف أو إعادة توزيع هوامش الربح.\n";
+        rec +=
+          "3) ربط هذا التحليل المالي مع النتائج الفنية ومتطلبات الجهة الحكومية قبل اتخاذ قرار نهائي بشأن استراتيجية التسعير في المنافسات المشابهة.";
+
+        document.getElementById("recommendation").textContent = rec;
       } else {
+        // لا توجد قيم عروض (مثل ملف الإدارة المتكاملة للآفات)
+        document.getElementById("sOffersCount").textContent =
+          onlySuppliers.length.toString();
+        document.getElementById("sLowestBid").textContent = "—";
+        document.getElementById("sTiladBid").textContent = "—";
+        document.getElementById("sTiladRank").textContent = "—";
+        document.getElementById("sTiladVsLowest").textContent = "—";
+
+        onlySuppliers.forEach((sup, idx) => {
+          const tr = document.createElement("tr");
+          const tdIndex = document.createElement("td");
+          tdIndex.textContent = idx + 1;
+
+          const tdName = document.createElement("td");
+          tdName.className = "text-start";
+          tdName.textContent = sup.name;
+          if (sup.name.includes("تلاد")) {
+            const badge = document.createElement("span");
+            badge.className = "badge-tilad";
+            badge.textContent = "تلاد";
+            tdName.appendChild(document.createTextNode(" "));
+            tdName.appendChild(badge);
+          }
+
+          const tdValue = document.createElement("td");
+          tdValue.textContent = "—";
+
+          const tdVsLowest = document.createElement("td");
+          tdVsLowest.textContent = "—";
+
+          const tdVsTilad = document.createElement("td");
+          tdVsTilad.textContent = "—";
+
+          tr.appendChild(tdIndex);
+          tr.appendChild(tdName);
+          tr.appendChild(tdValue);
+          tr.appendChild(tdVsLowest);
+          tr.appendChild(tdVsTilad);
+          tableBody.appendChild(tr);
+        });
+
+        tableNote.textContent =
+          "* هذا التقرير لا يحتوي على قيم عروض مالية، وإنما أسماء الموردين وأرقام عروضهم فقط، لذلك لا يمكن إجراء تحليل مالي تفصيلي في هذه المرحلة.";
+
+        const notes = [];
         notes.push(
-          "• لم يتم التعرّف تلقائيًا على عرض مرتبط باسم (تلاد)، يُرجى التأكد من أن التقرير يحتوي على اسم شركة تلاد بالشكل المتعارف عليه."
+          "• تقرير فتح العروض الحالي يتضمن أسماء الموردين وأرقام العروض والملاحظات دون إظهار القيم المالية، وعليه فإن ترتيب تلاد المالي وقيمة الفرق لا يمكن استخلاصهما من هذا الإصدار."
         );
+        notes.push(
+          "• يُوصى بمتابعة التقارير اللاحقة أو إعلان الترسية في منصة اعتماد لاستكمال التحليل المالي ومقارنة الأسعار بعد إتاحة قيم العروض."
+        );
+
+        document.getElementById("generalNotes").textContent = notes.join("\n");
+
+        let rec =
+          "نظرًا لعدم توفر القيم المالية للعروض في هذا التقرير، يقتصر دور هذه الأداة على توثيق أسماء المتنافسين وأرقام عروضهم.\n\n";
+        rec +=
+          "• يُوصى بالاحتفاظ بهذا التقرير لأغراض الأرشفة والمتابعة، مع إعادة تشغيل التحليل المالي فور توفر تقرير فتح العروض المالية أو نتيجة الترسية.\n";
+
+        document.getElementById("recommendation").textContent = rec;
       }
 
-      document.getElementById("generalNotes").textContent = notes.join("\n");
-
-      let rec =
-        "استنادًا إلى مقارنة العروض المالية فقط، يُوصى بما يلي:\n\n";
-      rec +=
-        "1) مراجعة بنود التسعير التفصيلية لعرض شركة تلاد والتحقق من فرص إعادة ضبط الأسعار دون التأثير على جودة التنفيذ.\n";
-      rec +=
-        "2) في حال ثبوت فجوة مالية كبيرة وغير مبررة مع أقل عرض، يُقترح إعداد سيناريوهات بديلة لخفض التكاليف أو إعادة توزيع هوامش الربح.\n";
-      rec +=
-        "3) ربط هذا التحليل المالي مع النتائج الفنية ومتطلبات الجهة الحكومية قبل اتخاذ قرار نهائي بشأن استراتيجية التسعير في المنافسات المشابهة.";
-
-      document.getElementById("recommendation").textContent = rec;
-
-      // إظهار الكروت
-      document.getElementById("summaryCard").style.display = "block";
-      document.getElementById("tableCard").style.display = "block";
-      document.getElementById("notesCard").style.display = "block";
+      summaryCard.style.display = "block";
+      tableCard.style.display = "block";
+      notesCard.style.display = "block";
     }
   </script>
 </body>
